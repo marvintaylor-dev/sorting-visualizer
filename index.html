@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="body-container">
+
+        <div class="uiContainer">
+
+            <div class="count-input-container">
+                <label class="count-label" for="count-input">Type in a Number</label>
+                <p>(bigger than 0 less than 100)</p>
+                <input type="text" name="count-input" class="count-input" id="count-input">
+            </div>
+            <div class="buttons-container">
+                <div id="randomize" class="go-btn blue">
+                    <h3>Randomize</h3>
+                </div>
+                <div id="bubble-sort" class="go-btn">
+                    <h3>Bubble Sort</h3>
+                </div>
+
+
+                <!--  <div id="quick-sort" class="go-btn">
+                    <h3>Quick Sort</h3>
+                </div> -->
+                <!-- <div id="swapper" class="go-btn">
+                    <h3>Swapper</h3>
+                </div> -->
+
+            </div>
+        </div>
+        <div class="justify-flexCenter">
+            <div class="viz-bars-container"></div>
+            <h4>Set Algorithm Speed</h4>
+            <div class="slider-container">
+                <input type="range" min="1" max="1000" name="sleepNumber" id="sleepNumber" step="1" value="100">
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="sleep.js"></script>
+    <!-- <script src="scripts.js"></script> -->
+    <script src="randomize.js"></script>
+    <script src="bubbleSort.js"></script>
+</body>
+
+</html>
