@@ -5,8 +5,6 @@ let vizbarHeight;
 
 
 
-
-
 bubbleBtn.addEventListener('click', async () => {
     //places the randomized heights from the randomizer button into an array for processing.
     let arrayOfHeights = [];

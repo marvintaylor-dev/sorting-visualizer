@@ -21,7 +21,7 @@ function randomBars() {
 
     vizbars = document.querySelectorAll('.viz-bar')
     for (let bars of vizbars) {
-        let random = Math.floor(Math.random() * 200) + 1
+        let random = Math.floor(Math.random() * 300) + 1
         bars.style.height = `${random}px`
     }
 }
