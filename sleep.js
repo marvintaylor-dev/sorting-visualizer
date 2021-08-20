@@ -5,6 +5,6 @@ sleepNumber.addEventListener('change', () => {
 })
 
 let sleep = (milliseconds) => {
-    return new Promise(resolve => setTimeout(resolve, sleepNumber.value || milliseconds))
+    return new Promise(resolve => setTimeout(resolve, 500 - sleepNumber.value || milliseconds))
 }
 
