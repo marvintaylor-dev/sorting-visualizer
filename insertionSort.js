@@ -54,6 +54,14 @@ const visualizedInsertionSort = async arr => {
                 vizbars[j + 1].style.height = vizbars[j].style.height
 
                 //-----------------------------------------------------
+
+                //adjust the inner number of the bar if there are 40 bars or less and a swap has been made
+                if (vizbars.length < limit) {
+                    for (let i = 0; i < vizbars.length; i++) {
+                        vizbars[i].innerHTML = parseInt(vizbars[i].style.height)
+                    }
+                }
+
             } else {
                 break;
             }
@@ -71,6 +79,14 @@ const visualizedInsertionSort = async arr => {
 
         vizbars[j + 1].style.height = `${currentVal}px`
         //-----------------------------------------------------
+
+        //adjust the inner number of the bar if there are 40 bars or less and a swap has been made
+        if (vizbars.length < limit) {
+            for (let i = 0; i < vizbars.length; i++) {
+                vizbars[i].innerHTML = parseInt(vizbars[i].style.height)
+            }
+        }
+
         arr[j + 1] = currentVal
     }
     for (let bars of vizbars) {

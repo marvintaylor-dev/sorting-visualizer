@@ -1,5 +1,3 @@
-
-
 const bubbleBtn = document.querySelector('#bubble-sort');
 let vizbarHeight;
 
@@ -15,6 +13,7 @@ bubbleBtn.addEventListener('click', async () => {
 
     await visualizedBubbleSort(arrayOfHeights)
 })
+
 
 
 
@@ -63,6 +62,13 @@ const visualizedBubbleSort = async arr => {
                 vizbars[j + 1].style.height = temp1
                 /* vizbars[j + 1].style.height = `${temp}px` */
 
+                //adjust the inner number of the bar if there are 40 bars or less and a swap has been made
+                if (vizbars.length < limit) {
+                    for (let i = 0; i < vizbars.length; i++) {
+                        vizbars[i].innerHTML = parseInt(vizbars[i].style.height)
+                    }
+                }
+
 
                 noSwaps = false
             }
@@ -82,6 +88,7 @@ const visualizedBubbleSort = async arr => {
 
 
     }
+
     for (let bar of vizbars) {
         bar.classList.add('orange')
     }

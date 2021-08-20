@@ -77,6 +77,12 @@ const visualizedSelectionSort = async arr => {
             arr[lowest] = temp;
             vizbars[lowest].style.height = temp1
             //---------------------------------------------------
+            //adjust the inner number of the bar if there are 40 bars or less and a swap has been made
+            if (vizbars.length < limit) {
+                for (let i = 0; i < vizbars.length; i++) {
+                    vizbars[i].innerHTML = parseInt(vizbars[i].style.height)
+                }
+            }
         }
 
         //before we move to the next pass of the nested loop we need to remove remaining colors from the last pass. And we need to add orange to the first or 'i' element.

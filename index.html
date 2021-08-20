@@ -12,50 +12,66 @@
     <div class="body-container">
 
         <div class="uiContainer">
+            <h1>Sorting Visualization</h1>
 
-            <div class="count-input-container">
-                <label class="count-label" for="count-input">Type in a Number</label>
-                <p>(bigger than 0 less than 100)</p>
-                <input type="text" name="count-input" class="count-input" id="count-input">
-            </div>
+
             <div class="buttons-container">
-                <div id="randomize" class="go-btn blue">
-                    <h3>Randomize</h3>
-                </div>
-                <div id="bubble-sort" class="go-btn">
+                <div id="bubble-sort" class="btn">
                     <h3>Bubble Sort</h3>
                 </div>
-                <div id="selection-sort" class="go-btn">
+                <div id="selection-sort" class="btn">
                     <h3>Selection Sort</h3>
                 </div>
-                <div id="insertion-sort" class="go-btn">
+                <div id="insertion-sort" class="btn">
                     <h3>Insertion Sort</h3>
                 </div>
-
-
-                <!--  <div id="quick-sort" class="go-btn">
+                <div id="merge-sort" class="btn">
+                    <h3>Merge Sort</h3>
+                </div>
+                <div id="quick-sort" class="btn">
                     <h3>Quick Sort</h3>
+                </div>
+            </div>
+
+            <div class="slider-container">
+                <!--   <h4>Bar Count</h4>
+                <div class="barSlider">
+                    <input type="range" min="1" max="100" name="barNumber" id="barNumber" step="1" value="20">
+                </div>
+                <h4>Set Algorithm Speed</h4>
+                <div class="speed-container">
+                    <input type="range" min="0" max="1000" name="sleepNumber" id="sleepNumber" step="1" value="50">
                 </div> -->
-                <!-- <div id="swapper" class="go-btn">
-                    <h3>Swapper</h3>
-                </div> -->
+            </div>
+
+            <div class="slider-container">
+                <h4>Bar Count</h4>
+                <input type="range" value="30" min="0" max="100" oninput="rangevalue.value=value" name="barNumber"
+                    id="barNumber" />
+                <output id="rangevalue">30</output>
+
+                <h4>Set Algorithm Speed</h4>
+                <input type="range" value="150" min="0" max="500" oninput="rangenumber.value=value" name="sleepNumber"
+                    id="sleepNumber" />
+                <output id="rangenumber">150</output>
 
             </div>
         </div>
-        <div class="justify-flexCenter">
+
+        <div class="flex-center">
             <div class="viz-bars-container"></div>
-            <h4>Set Algorithm Speed</h4>
-            <div class="slider-container">
-                <input type="range" min="1" max="1000" name="sleepNumber" id="sleepNumber" step="1" value="100">
-            </div>
         </div>
+
 
     </div>
 
 
+    <script src="input.js"></script>
     <script src="sleep.js"></script>
     <!-- <script src="scripts.js"></script> -->
     <script src="randomize.js"></script>
+    <script src="mergeSort.js"></script>
+    <script src="quickSort.js"></script>
     <script src="insertionSort.js"></script>
     <script src="bubbleSort.js"></script>
     <script src="selectionSort.js"></script>
