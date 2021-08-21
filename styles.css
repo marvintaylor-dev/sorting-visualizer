@@ -15,6 +15,7 @@
 
 body {
     background-color: var(--light-teal);
+    overflow-x: hidden;
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -23,7 +24,8 @@ h1{
     color: var(--off-white);
     letter-spacing: 2px;
     text-align: center;
-    padding: 1rem;
+    padding: none;
+    margin: 0;
     font-weight: 800;
 }
 
@@ -33,6 +35,55 @@ h3{
     margin: 0;
 }
 
+.menu {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    padding: 0;
+  }
+  .line {
+    fill: none;
+    stroke: var(--off-white);
+    stroke-width: 3;
+    transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+      stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .line1 {
+    stroke-dasharray: 60 207;
+    stroke-width: 3;
+  }
+  .line2 {
+    stroke-dasharray: 60 60;
+    stroke-width: 3;
+  }
+  .line3 {
+    stroke-dasharray: 60 207;
+    stroke-width: 3;
+  }
+  .opened .line1 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: 3;
+  }
+  .opened .line2 {
+    stroke-dasharray: 1 60;
+    stroke-dashoffset: -30;
+    stroke-width: 3;
+  }
+  .opened .line3 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: 3;
+  }
+  
+.mobile-view-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 2rem;
+}
 
 .headingContainer{
     position: relative;
@@ -43,6 +94,7 @@ h3{
     padding: 2rem;
     box-shadow: -5px 5px 30px 5px rgba(9, 9, 9, 0.2);
     background-color: var(--dark-teal);
+    z-index: 2;
 }
 
 .headingContainer h1 span {
@@ -59,7 +111,7 @@ h3{
 .reset {
     width: auto;
     height: auto;
-    padding: 1em 1em;
+    padding: .5em 1em;
     border: none;
     font-size: 15px;
     letter-spacing: 1.3px;
@@ -67,7 +119,6 @@ h3{
     color: var(--dark-teal);
     font-weight: bold;
     border-radius: .1em;
-    margin-top: 2rem;
     cursor: pointer;
 }
 
@@ -76,40 +127,6 @@ h3{
     animation: rainbow 5s infinite;
 }
 
-@keyframes rainbow {
-    0%{
-        background-color: rgb(8, 238, 254);
-        box-shadow: 0px 5px 42px 6px rgba(6, 167, 225, 0.502);
-    }
-    5% {
-        background-color: rgb(176, 127, 255);
-        box-shadow: 0px 5px 42px 6px rgba(195, 166, 242, 0.502);
-    }
-    15% {
-        background-color: rgb(255, 127, 127);
-        box-shadow: 0px 5px 42px 6px rgba(255, 95, 95, 0.502);
-    }
-    30%{
-        background-color: rgb(52, 167, 255);
-        box-shadow: 0px 5px 42px 6px rgba(12, 143, 244, 0.502);
-    }
-    45% {
-        background-color: rgb(3, 203, 3);
-        box-shadow: 0px 5px 42px 6px rgba(75, 252, 75, 0.502);
-    }
-    65% {
-        background-color: rgb(154, 51, 206);
-        box-shadow: 0px 5px 42px 6px rgba(168, 27, 238, 0.509);
-    }
-    85%{
-        background-color: rgb(254, 176, 8);
-        box-shadow: 0px 5px 42px 6px rgba(250, 186, 47, 0.502);
-    }
-    100%{
-        background-color: rgb(8, 238, 254);
-        box-shadow: 0px 5px 42px 6px rgba(6, 167, 225, 0.502);
-    }
-}
 
 .btn {
     display: flex;
@@ -125,6 +142,7 @@ h3{
     margin: .5rem .5rem;
     outline: 1px solid var(--off-white);
     transition: all .4s ease-in-out;
+    position: relative;
 }   
 
 
@@ -133,18 +151,43 @@ h3{
     outline-offset: .4rem;
     outline-color: transparent;
     background-color: transparent;
-   /*  animation: pulse 1.5s infinite; */
+    color: var(--off-white);
+    font-size: 14px;
+    /* animation: text-rainbow 5s infinite; */
 } 
 
-/* @keyframes pulse {
-    0% {
-        font-size: 12px;
-    }
-    75% {
-        font-size: 13px;
-        color: var(--darker-yellow);
-    }
-} */
+.btn:hover::after{
+    content: "";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 100px;
+    background-color: var(--darker-yellow);
+    box-shadow: -5px 5px 30px 5px rgba(9, 9, 9, 0.2);
+    position: absolute;
+    top: 8rem;
+    z-index: 1;
+    font-size: 24px;
+    color: var(--off-white);
+    outline: 4px solid var(--off-white);
+}
+
+#bubble-sort:hover::after{
+    content: "Big O: Quadratic Time or N^2";
+}
+#selection-sort:hover::after{
+    content: "Big O: Quadratic Time or N^2";
+}
+#insertion-sort:hover::after{
+    content: "Big O: Quadratic Time or N^2";
+}
+#merge-sort:hover::after{
+    content: "Big O: O(n*Log n)";
+}
+#quick-sort:hover::after{
+    content: "Big O: O(n*Log n)";
+}
 
 .main-container{
     display: flex;
@@ -184,11 +227,25 @@ h3{
 }
 
 .slider-container{
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    flex-direction: column;
     flex-wrap: wrap;
     column-gap: 40px;
+    background-color: var(--dark-teal);
+    box-shadow: -25px 34px 30px 5px rgba(9, 9, 9, 0.2);
+    padding: 4rem;
+    right: 0;
+    top: 10rem;
+    z-index: 1;
+    transform: translateX(120%);
+    transition: transform .7s ease-in-out;
+}
+
+.show-menu{    
+    transform: translateX(0%);
 }
 
 
@@ -198,10 +255,42 @@ h3{
     letter-spacing: 1px;
 }
 
+.slider-container div:last-of-type {
+    margin-top: 2rem;
+}
+
+@media (max-width: 385px){
+    .slider-container{
+        top: 12rem;
+    }
+}
 
 @media (min-width: 1000px){
     .body-container{
         display: flex;
+    }
+    .menu {
+        display: none;
+    }
+    .mobile-view-container{
+        width: auto;
+    }
+    .slider-container{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+        flex-wrap: wrap;
+        column-gap: 40px;
+        background-color: transparent;
+        box-shadow: none;
+        padding: 0rem;
+        right: 0;
+        top: 0rem;
+        z-index: 0;
+        transform: translateX(0%);
+        transition: none;
     }
     .headingContainer{
         justify-content: space-around;
@@ -216,6 +305,7 @@ h3{
         border-bottom-width: 5px;
         text-align: start;
         font-size: 45px;
+        padding: 1rem 0rem;
     }
     .buttons-container{
         display: flex;
@@ -224,8 +314,7 @@ h3{
     }
     .btn{
         width: 180px;
-    }
-   
+    }   
     .viz-bars-container {
         position: absolute;
         right: 0;
@@ -246,6 +335,9 @@ h3{
         width: 100%;
         justify-content: flex-start;
         align-items: center;        
+    }
+    .reset{
+        padding: 1em 1em;
     }
 }
 
@@ -402,6 +494,7 @@ input[type="range"]::-ms-track {
     background-color: rgb(254, 176, 8);
 }
 
+/* -----------------------------animations -------------------------------------------------- */
 
 
 @keyframes text-rainbow {
@@ -410,7 +503,7 @@ input[type="range"]::-ms-track {
         
     }
     5% {
-        color: rgb(176, 127, 255);
+        color: rgb(229, 215, 250);
        
     }
     15% {
@@ -426,7 +519,7 @@ input[type="range"]::-ms-track {
         
     }
     65% {
-        color: rgb(154, 51, 206);
+        color: rgb(198, 91, 252);
        
     }
     85%{
@@ -436,5 +529,41 @@ input[type="range"]::-ms-track {
     100%{
         color: rgb(8, 238, 254);
        
+    }
+}
+
+
+@keyframes rainbow {
+    0%{
+        background-color: rgb(8, 238, 254);
+        box-shadow: 0px 5px 42px 6px rgba(6, 167, 225, 0.502);
+    }
+    5% {
+        background-color: rgb(176, 127, 255);
+        box-shadow: 0px 5px 42px 6px rgba(195, 166, 242, 0.502);
+    }
+    15% {
+        background-color: rgb(255, 127, 127);
+        box-shadow: 0px 5px 42px 6px rgba(255, 95, 95, 0.502);
+    }
+    30%{
+        background-color: rgb(52, 167, 255);
+        box-shadow: 0px 5px 42px 6px rgba(12, 143, 244, 0.502);
+    }
+    45% {
+        background-color: rgb(3, 203, 3);
+        box-shadow: 0px 5px 42px 6px rgba(75, 252, 75, 0.502);
+    }
+    65% {
+        background-color: rgb(154, 51, 206);
+        box-shadow: 0px 5px 42px 6px rgba(168, 27, 238, 0.509);
+    }
+    85%{
+        background-color: rgb(254, 176, 8);
+        box-shadow: 0px 5px 42px 6px rgba(250, 186, 47, 0.502);
+    }
+    100%{
+        background-color: rgb(8, 238, 254);
+        box-shadow: 0px 5px 42px 6px rgba(6, 167, 225, 0.502);
     }
 }
