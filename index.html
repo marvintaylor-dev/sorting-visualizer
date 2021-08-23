@@ -11,8 +11,10 @@
 <body>
     <div class="body-container">
 
+
         <div class="headingContainer">
             <h1>Sorting <span>Visualization</span></h1>
+
             <div class="slider-container">
                 <div>
                     <h4>Bar Count</h4>
@@ -27,8 +29,33 @@
                     <output id="rangenumber">150</output>
                 </div>
             </div>
+
             <div class="mobile-view-container">
                 <button id="reset" class="reset">RESET</button>
+                <div class="schemeToggle">
+                    <input type="checkbox" name="schemeToggle" id="schemeToggle">
+                    <label for="schemeToggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 593 593">
+                            <g id="rays">
+                                <line class="cls-2" x1="296.5" y1="588" x2="296.5" y2="475.95" />
+                                <line class="cls-2" x1="296.5" y1="117.04" x2="296.5" y2="5" />
+                                <line class="cls-2" x1="117.05" y1="296.5" x2="5" y2="296.5" />
+                                <line class="cls-2" x1="588" y1="296.5" x2="475.96" y2="296.5" />
+                                <line class="cls-2" x1="502.63" y1="90.38" x2="423.4" y2="169.6" />
+                                <line class="cls-2" x1="169.61" y1="423.39" x2="90.38" y2="502.62" />
+                                <line class="cls-2" x1="169.61" y1="169.6" x2="90.38" y2="90.38" />
+                                <line class="cls-2" x1="502.63" y1="502.62" x2="423.4" y2="423.39" />
+                            </g>
+                            <g id="circle">
+                                <circle cx="300" cy="300" r="100" />
+                                <circle class="circleTwo" cx="800" cy="250" r="150" />
+                            </g>
+                        </svg>
+                    </label>
+
+
+                    <!-- <label for="schemeToggle"></label> -->
+                </div>
                 <button class="menu"
                     onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))"
                     aria-label="Main Menu">

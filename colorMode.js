@@ -1,4 +1,4 @@
-const modeToggle = document.querySelector('h1')
+const modeToggle = document.querySelector('#schemeToggle')
 
 modeToggle.addEventListener('click', () => {
     document.body.classList.contains('light-theme') ? enableDarkMode() : enableLightMode();
